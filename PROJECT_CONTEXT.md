@@ -1,4 +1,4 @@
-# PROJECT_CONTEXT.md — FanGameOne
+# PROJECT_CONTEXT.md — Endless Pirates (repositorio FanGameOne)
 
 > Memoria técnica para asistentes de programación. Actualizar solo tras cambios confirmados en el repositorio. Fecha de revisión de los ZIP: 2026-10-21.
 
@@ -132,3 +132,11 @@ No presentar estas tareas propuestas como funcionalidades existentes.
 - Validar los cambios antes de considerarlos terminados.
 - Actualizar este documento después de cada mejora autorizada.
 - No implementar cambios sin autorización explícita.
+
+## 12. Diseño aprobado y documentación — 2026-10-22
+- **Nombre oficial:** Endless Pirates; el nombre del repositorio y URL de Pages permanecen como `FanGameOne` hasta orden expresa.
+- **Fuente normativa de reglas:** [docs/GAME_DESIGN.md](docs/GAME_DESIGN.md). Este archivo sigue describiendo el estado **implementado** del prototipo v0.2; no confundir plan con código existente.
+- **README actualizado:** explica identidad del juego, campaña planeada de 10 escenarios/30 min, sets, Taberna y supervivencia extrema, señalando que está pendiente de implementación.
+- Cinco imágenes de interfaz aprobadas **en la conversación**, pero **no incorporadas como archivos al repositorio**. El siguiente prompt de desarrollo será sobre interfaces y el usuario deberá suministrar esos archivos a Work.
+- Rama modificada por esta tarea documental: `work`. **Sin cambios a `main`, `claude` ni `dist/`**.
+- **No programar nada por iniciativa propia.** Siguiente tarea autorizable: interfaz menú principal primero; continuar con las otras solo tras aprobación.
