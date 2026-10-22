@@ -97,7 +97,7 @@ No presentar estas tareas propuestas como funcionalidades existentes.
 - **2026-10-21 — Importación del prototipo v0.2** a `dist/` y `docs/ART-DIRECTION.md`, sin tocar código ni rutas. Pruebas: SHA-256 de los 18 archivos de `dist/` idéntico al ZIP; servido con `http.server` y abierto en Chromium sin 404 ni errores de consola; partida con Luffy en Shells Town iniciada, sprites renderizados, 5 s de movimiento sin fallos. No probado: jefe, subida de nivel, resto de personajes/capítulos, táctil, FPS.
 - Pendiente: mejoras propuestas del análisis (catálogo de mejoras en módulo de datos, evoluciones, enemigos/oleadas, modularización, meta-progresión).
 
-- ## 11. Publicación web — 2026-10-21
+## 11. Publicación web — 2026-10-21
 
 ### Estado del despliegue
 - Repositorio: `SebastianMonsalveDev/FanGameOne`
