@@ -12,7 +12,7 @@
 - `OnePiece-GrandLine-Survivors-v0.2.zip`: prototipo local inspeccionado. Contiene una carpeta `dist/` y una versión autónoma `OnePiece-Jugar-v0.2.html`.
 - `pokesurvivor-main(1).zip`: código de referencia inspeccionado. No incorporarlo automáticamente al repositorio.
 - Imágenes del usuario: pixel art para sprites/animaciones; ilustraciones más detalladas para retratos y UI.
-- Estado del repositorio en la captura: solo `README.md`. **La existencia de archivos en los ZIP no significa que estén subidos a GitHub.**
+- Prototipo v0.2 importado a `dist/` en `main` el 2026-10-21 (sin cambios de código, mecánicas, gráficos ni rutas). PokeSurvivor **no** está en el repositorio ni debe añadirse sin revisar licencia.
 
 ## 3. Stack actual del prototipo
 - HTML5, CSS3, JavaScript vanilla y Canvas 2D.
@@ -48,7 +48,7 @@ dist/
     harbor.png
     reference/     # imágenes originales de referencia
 ```
-Verificar rutas y contenido del repositorio real antes de editar: esta estructura procede del ZIP, no del GitHub vacío.
+Estructura real en el repositorio: `dist/` (index.html, style.css, polish.css, CREDITS.md, LICENSE-REFERENCE.md, js/, assets/{classic-chibi,enemies-chibi}.png, assets/reference/{atlas,walk,hero,collection}.png) y `docs/ART-DIRECTION.md`. Excluidos por no usarse o duplicar: `OnePiece-Jugar-v0.2.html` (18,7 MB, copia con todo embebido), `assets/{bosses,crew,harbor}.png` (sin referencias en js/css/html), `LEEME-v0.2.txt` y el README del ZIP. Verificar rutas antes de editar.
 
 ## 5. Lo que ya incluye v0.2 (según archivos)
 - Jugables: Luffy, Zoro, Nami, Usopp y Sanji, con estadísticas y especialidades diferenciadas.
@@ -89,6 +89,10 @@ No presentar estas tareas propuestas como funcionalidades existentes.
 
 ## 9. Estado comprobado
 - **Comprobado en ZIP:** funcionalidades y rutas listadas anteriormente.
-- **Comprobado en captura del usuario:** GitHub `SebastianMonsalveDev/FanGameOne`, `main`, inicialmente solo `README.md`.
-- **Sin comprobar:** ZIP integrado en GitHub, ejecución de la build, FPS, fallos del navegador, licencias individuales de todas las imágenes.
+- **Comprobado:** prototipo v0.2 en `dist/` del repositorio (2026-10-21); ver pruebas en el registro.
+- **Sin comprobar:** FPS, rendimiento y balance; licencias individuales de todas las imágenes.
 - **Última tarea del usuario:** crear documentación inicial (`README.md`, `PROJECT_CONTEXT.md` y `CLAUDE.md`), sin programar el videojuego.
+
+## 10. Registro
+- **2026-10-21 — Importación del prototipo v0.2** a `dist/` y `docs/ART-DIRECTION.md`, sin tocar código ni rutas. Pruebas: SHA-256 de los 18 archivos de `dist/` idéntico al ZIP; servido con `http.server` y abierto en Chromium sin 404 ni errores de consola; partida con Luffy en Shells Town iniciada, sprites renderizados, 5 s de movimiento sin fallos. No probado: jefe, subida de nivel, resto de personajes/capítulos, táctil, FPS.
+- Pendiente: mejoras propuestas del análisis (catálogo de mejoras en módulo de datos, evoluciones, enemigos/oleadas, modularización, meta-progresión).
