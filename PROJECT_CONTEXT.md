@@ -91,7 +91,7 @@ No presentar estas tareas propuestas como funcionalidades existentes.
 - **Comprobado en ZIP:** funcionalidades y rutas listadas anteriormente.
 - **Comprobado:** prototipo v0.2 en `dist/` del repositorio (2026-10-21); ver pruebas en el registro.
 - **Sin comprobar:** FPS, rendimiento y balance; licencias individuales de todas las imágenes.
-- **Última tarea del usuario:** crear documentación inicial (`README.md`, `PROJECT_CONTEXT.md` y `CLAUDE.md`), sin programar el videojuego.
+- **Último avance:** prototipo v0.2 publicado correctamente en GitHub Pages y documentación de despliegue actualizada.
 
 ## 10. Registro
 - **2026-10-21 — Importación del prototipo v0.2** a `dist/` y `docs/ART-DIRECTION.md`, sin tocar código ni rutas. Pruebas: SHA-256 de los 18 archivos de `dist/` idéntico al ZIP; servido con `http.server` y abierto en Chromium sin 404 ni errores de consola; partida con Luffy en Shells Town iniciada, sprites renderizados, 5 s de movimiento sin fallos. No probado: jefe, subida de nivel, resto de personajes/capítulos, táctil, FPS.
