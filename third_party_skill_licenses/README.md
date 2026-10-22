@@ -1,0 +1,1 @@
+Skills originales de mattpocock/skills, jakubkrehel/skills y JuliusBrussee/caveman. Licencias incluidas. Grill-me depende de grilling. RTK no incluido: ejecutable separado. Copiadas para Codex (.agents/skills) y Claude (.claude/skills). No implica instalación automática en ChatGPT Work ni autoriza modificar el juego.
