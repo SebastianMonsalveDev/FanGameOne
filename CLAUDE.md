@@ -40,3 +40,7 @@ Desarrollar gradualmente un fangame One Piece 2D pixel art top-down, inspirado e
 **Pendiente:** ...
 
 Si fue solo análisis: **Hallazgos:** ... / **Propuesta:** ... / **Archivos modificados:** ninguno.
+
+## Integración de Skills del proyecto
+
+@AGENTS.md
