@@ -96,3 +96,39 @@ No presentar estas tareas propuestas como funcionalidades existentes.
 ## 10. Registro
 - **2026-10-21 — Importación del prototipo v0.2** a `dist/` y `docs/ART-DIRECTION.md`, sin tocar código ni rutas. Pruebas: SHA-256 de los 18 archivos de `dist/` idéntico al ZIP; servido con `http.server` y abierto en Chromium sin 404 ni errores de consola; partida con Luffy en Shells Town iniciada, sprites renderizados, 5 s de movimiento sin fallos. No probado: jefe, subida de nivel, resto de personajes/capítulos, táctil, FPS.
 - Pendiente: mejoras propuestas del análisis (catálogo de mejoras en módulo de datos, evoluciones, enemigos/oleadas, modularización, meta-progresión).
+
+- ## 11. Publicación web — 2026-10-21
+
+### Estado del despliegue
+- Repositorio: `SebastianMonsalveDev/FanGameOne`
+- Rama principal: `main`
+- Hosting: GitHub Pages.
+- URL: https://sebastianmonsalvedev.github.io/FanGameOne/
+- Workflow: `.github/workflows/static.yml`
+- Carpeta publicada: `dist/`
+- Despliegue automático al actualizar `main`.
+- GitHub Actions confirmó una ejecución exitosa.
+
+### Comprobaciones realizadas
+- La página principal carga desde GitHub Pages.
+- Las imágenes principales y el retrato de Luffy se visualizan correctamente.
+- Aparecen las secciones Aventura, Tripulación, Mejoras, Bitácora y Galería.
+- Se muestra Shells Town como primera isla.
+- La interfaz se visualiza correctamente en la captura proporcionada.
+
+### Pruebas pendientes
+- Iniciar y completar una partida desde GitHub Pages.
+- Verificar movimiento, ataques y habilidades.
+- Comprobar experiencia, niveles y selección de mejoras.
+- Probar los cinco personajes y sus animaciones.
+- Verificar los jefes de las cinco islas.
+- Comprobar guardado y carga de progreso.
+- Medir FPS, rendimiento y comportamiento con numerosos enemigos.
+
+### Instrucciones para las IA
+- Trabajar sobre el código de `main`, no sobre los ZIP antiguos.
+- Conservar el funcionamiento de GitHub Pages.
+- No modificar las rutas de `dist/` sin verificar el despliegue.
+- Validar los cambios antes de considerarlos terminados.
+- Actualizar este documento después de cada mejora autorizada.
+- No implementar cambios sin autorización explícita.
