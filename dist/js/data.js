@@ -19,7 +19,20 @@ OP.chapters=[
 OP.upgrades=[{id:'hull',name:'Resistencia de aventurero',icon:'♡',desc:'+15 de vida máxima por nivel para toda la tripulación.',cost:100,max:5},{id:'training',name:'Entrenamiento en cubierta',icon:'⚔',desc:'+8% de daño por nivel en todos los ataques.',cost:140,max:5},{id:'boots',name:'Paso de marinero',icon:'↗',desc:'+5% de velocidad de movimiento por nivel.',cost:100,max:5},{id:'compass',name:'Brújula de explorador',icon:'⌖',desc:'+20% de alcance para recoger experiencia por nivel.',cost:90,max:5},{id:'provisions',name:'Provisiones del viaje',icon:'✚',desc:'Recupera 0,3 de vida por segundo por nivel.',cost:150,max:5},{id:'reflex',name:'Reflejos de combate',icon:'◷',desc:'Reduce un 6% la recarga de ataques por nivel.',cost:160,max:5}];
 OP.techniques={luffy:[{name:'Gomu Gomu no Muchi',desc:'Un barrido de pierna de goma golpea a los enemigos cercanos.'},{name:'Gomu Gomu no Fusen',desc:'Infla el cuerpo, empuja a los enemigos y obtiene una breve protección.'}],zoro:[{name:'Tora Gari',desc:'Un corte de Santoryu alcanza a varios enemigos frente a ti.'},{name:'Tatsu Maki',desc:'Un giro de tres espadas despeja a los enemigos a tu alrededor.'}],nami:[{name:'Barrido de bastón',desc:'Un barrido amplio con el bastón aparta a los enemigos cercanos.'},{name:'Contraataque de bastón',desc:'Un golpe circular con el bastón mantiene a raya a la horda.'}],usopp:[{name:'Hissatsu Namari Boshi',desc:'Dispara varias bolas de plomo con el tirachinas.'},{name:'Hissatsu Kaen Boshi',desc:'Lanza munición incendiaria que explota al alcanzar un enemigo.'}],sanji:[{name:'Poitrine Shoot',desc:'Una patada al pecho alcanza al enemigo y a quienes tenga cerca.'},{name:'Concassé',desc:'Un potente golpe descendente de pierna despeja un área cercana.'}]};
 OP.defaultSave=()=>({version:1,berries:0,completed:[],selected:'luffy',chapter:0,upgrades:{},runs:0,kills:0,best:0,records:[],settings:{sound:false,shake:true,effects:true,difficulty:'normal'}});
-OP.load=()=>{try{let s=JSON.parse(localStorage.getItem('grand-line-survivors-v1'));if(s&&s.version===1)return {...OP.defaultSave(),...s,settings:{...OP.defaultSave().settings,...s.settings}}}catch(e){}return OP.defaultSave()};
+OP.SAVE_KEY='grand-line-survivors-v1';OP.SAVE_VERSION=1;
+/* Migraciones futuras: OP.migrations[versionOrigen]=save=>saveNuevo. Un guardado de otra versión o corrupto nunca se descarta sin copia de seguridad. */
+OP.migrations={};
+OP.load=()=>{const base=OP.defaultSave();let raw=null;const backup=(suffix)=>{try{const k=OP.SAVE_KEY+'-'+suffix;if(!localStorage.getItem(k))localStorage.setItem(k,raw)}catch(e){}};
+ try{raw=localStorage.getItem(OP.SAVE_KEY);if(!raw)return base;let s=JSON.parse(raw);if(!s||typeof s!=='object'||Array.isArray(s))throw new Error('Formato de guardado no válido');
+  let v=Number.isInteger(s.version)?s.version:0;if(v!==OP.SAVE_VERSION)backup('backup-v'+v);
+  while(v<OP.SAVE_VERSION){const m=OP.migrations[v];if(m)s=m(s)||s;v++;s.version=v}
+  const out={...base,...s,settings:{...base.settings,...(s.settings&&typeof s.settings==='object'&&!Array.isArray(s.settings)?s.settings:{})}};
+  for(const k of ['berries','runs','kills','best'])if(!Number.isFinite(out[k]))out[k]=base[k];
+  for(const k of ['completed','records'])if(!Array.isArray(out[k]))out[k]=base[k];
+  if(!out.upgrades||typeof out.upgrades!=='object'||Array.isArray(out.upgrades))out.upgrades={};
+  if(!OP.characters.some(c=>c.id===out.selected))out.selected=base.selected;
+  if(!Number.isInteger(out.chapter)||out.chapter<0||out.chapter>=OP.chapters.length)out.chapter=base.chapter;
+  return out}catch(e){console.warn('Guardado ilegible; se conserva una copia y se inicia progreso nuevo.',e);if(raw)backup('corrupt')}return base};
 OP.save=OP.load();
 OP.persist=()=>{try{localStorage.setItem('grand-line-survivors-v1',JSON.stringify(OP.save));return true}catch(e){const el=document.getElementById('save-status');if(el)el.textContent='Guardado no disponible en este navegador';return false}};
 OP.unlocked=c=>c.unlock===0||OP.save.completed.includes(c.unlock-1);

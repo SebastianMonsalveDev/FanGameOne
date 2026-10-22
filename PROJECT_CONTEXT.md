@@ -96,6 +96,13 @@ No presentar estas tareas propuestas como funcionalidades existentes.
 ## 10. Registro
 - **2026-10-21 — Importación del prototipo v0.2** a `dist/` y `docs/ART-DIRECTION.md`, sin tocar código ni rutas. Pruebas: SHA-256 de los 18 archivos de `dist/` idéntico al ZIP; servido con `http.server` y abierto en Chromium sin 404 ni errores de consola; partida con Luffy en Shells Town iniciada, sprites renderizados, 5 s de movimiento sin fallos. No probado: jefe, subida de nivel, resto de personajes/capítulos, táctil, FPS.
 - Pendiente: mejoras propuestas del análisis (catálogo de mejoras en módulo de datos, evoluciones, enemigos/oleadas, modularización, meta-progresión).
+- **2026-10-21 — Tarea 01 (rama `claude`, sin fusionar a `main`): estabilidad y guardado.** Archivos: `dist/js/data.js`, `ui.js`, `game.js`.
+  - Subida de nivel: si no quedan mejoras, `UI.fallbackPool()` ofrece 3 recompensas (curar 50 %, +40 berries, +4 % daño) sin tocar `ranks`.
+  - Capítulo seleccionado: solo avanza a la isla siguiente en la **primera** victoria de una isla; rejugar ya no lo mueve.
+  - Guardado: `OP.SAVE_VERSION`/`OP.migrations`; un guardado de otra versión o sin versión se conserva (copia `grand-line-survivors-v1-backup-v<N>`), se completan campos faltantes y se sanean tipos; un guardado de versión futura no se degrada; JSON corrupto se copia a `...-corrupt` antes de iniciar progreso nuevo.
+  - Bucle: `Game.loop` captura excepciones, las registra con `console.error`, detiene la simulación (`mode='crashed'`) y muestra un modal con salida al puerto, sin recompensas ni cambios en el guardado.
+  - Pruebas (Chromium sin interfaz, copia local): nivel normal y con mejoras agotadas (60 niveles seguidos sin bloqueo), capítulos (primera victoria, rejugar, clic en capítulos), guardado nuevo/actual/sin versión/v0/futuro/corrupto/tipos inválidos y recarga tras ganar, fallo simulado del bucle, movimiento, esquiva, especial, combate, pausa y 5 personajes × 5 jefes con victoria. Sin errores de consola salvo el fallo simulado. **No probado:** táctil, sonido, FPS en dispositivo real, GitHub Pages con estos cambios.
+  - Pendiente: guardar progreso parcial al cerrar a mitad de partida, medir FPS real, revisar balance de jefes con jugadores reales, mejoras del análisis (datos de mejoras, evoluciones, oleadas, modularización).
 
 ## 11. Publicación web — 2026-10-21
 
