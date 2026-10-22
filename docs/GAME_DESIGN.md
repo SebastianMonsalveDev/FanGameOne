@@ -68,7 +68,8 @@
 
 ## 7. Taberna y metaprogresión
 - Reclutamiento mediante Taberna, con opciones **abrir 1 / abrir 5**, rarezas visibles y probabilidades transparentes, sin monetización real.
-- Versiones del mismo personaje son reclutas distintos; los duplicados, fragmentos, precios y porcentajes están **pendientes de balance y aprobación**.
+- Versiones del mismo personaje son reclutas distintos. Aprobación **provisional** del 2026-10-22: Legendario **1 %**, Épico **5 %**, Raro **24 %**, Común **70 %**; abrir 1 cuesta **1 ticket** y abrir 5 cuesta **5 tickets**.
+- **No activar sorteos ni consumir tickets** hasta definir su obtención, la distribución de unidades por rareza y el tratamiento de duplicados. No se han aprobado fragmentos, compensaciones, garantías ni descuentos.
 - Astillero: progresión permanente prevista. Misiones y Logros, Bestiario y Noticias como interfaces planificadas; distinguir lo implementado de los placeholders.
 - Equipamiento, recompensas y guardado deberán integrarse progresivamente sin dañar el prototipo.
 
@@ -88,7 +89,7 @@
 
 ## 10. Cuestiones deliberadamente pendientes
 - Imágenes definitivas deben subirse como archivos identificables al repositorio cuando el propietario autorice esa acción.
-- Tablas de rareza, probabilidades, monedas, duplicados, catálogo preciso de unidades y habilidades.
+- Distribución de unidades por rareza, obtención de tickets, duplicados, catálogo preciso de unidades y habilidades. Probabilidades y costes provisionales: sección 7; sorteos y consumo siguen expresamente desactivados.
 - Ventana exacta de aparición del jefe dentro de cada tramo, efecto de una victoria anticipada, patrón y balance de enemigos; transición de isla sin romper reloj de 30 min.
 - Qué ocurre al morir, pausas, opciones de accesibilidad, rendimiento y reglas detalladas de puntuación/antitrampas.
 - Ajustes de canonicalidad para God Valley/Elbaf y selección exacta de jefes de Water 7.
